@@ -65,6 +65,26 @@ class AppService {
     return promise;
   }
 
+  getEpisode(id) {
+    const defered = this.$q.defer();
+    const promise = defered.promise;
+
+    this.$http({
+      method: 'GET',
+      url: `${this.ApiUrl}?i=${id}`
+    })
+      .then(
+      data => {
+        defered.resolve(data);
+      },
+      err => {
+        defered.reject(err);
+      }
+      );
+
+    return promise;
+  }
+
 }
 
 AppService.$inject = ['$http', '$q', 'ApiUrl'];

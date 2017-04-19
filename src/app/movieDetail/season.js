@@ -19,11 +19,23 @@ class SeasonController {
   }
 
   getSeasons(season) {
+    this.showDescription = false;
     this.tab = season - 1;
     this.AppService.getSeasons(this.id, season)
       .then(data => {
         this.$log.log(data);
         this.episodes = data.data.Episodes;
+      })
+      .catch();
+  }
+  getEpisode(id, idA) {
+    this.$log.log(id);
+    this.idA = idA;
+    this.AppService.getEpisode(id)
+      .then(data => {
+        this.$log.log(data);
+        this.episodeData = data.data;
+        this.showDescription = true;
       })
       .catch();
   }

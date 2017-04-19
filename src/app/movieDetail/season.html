@@ -7,12 +7,17 @@
   </div>
   <div class="season">
     <ul>
-      <li ng-repeat="chapter in $ctrl.episodes">
+      <li ng-repeat="chapter in $ctrl.episodes" ng-click="$ctrl.getEpisode(chapter.imdbID,$index)">
         <span>
-          {{chapter.Title}}
+          <strong>{{$index+1}}</strong> {{chapter.Title}}
         </span>
-        <div ng-show="$ctrl.showDescription">
-          Description
+        <div ng-show="$ctrl.showDescription && $ctrl.idA == $index">
+          <span><strong>Aired on:</strong>{{$ctrl.episodeData.Released}}</span>
+          <span><strong>Description:</strong></span>
+          <p>
+            {{$ctrl.episodeData.Plot}}
+          </p>
+          <span><strong>Rating:</strong>{{$ctrl.episodeData.imdbRating}}</span>
         </div>
       </li>
     </ul>
