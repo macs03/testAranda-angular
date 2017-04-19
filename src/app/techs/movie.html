@@ -1,6 +1,12 @@
-<div class="tech">
+<div class="tech" ng-mouseenter="$ctrl.action($ctrl.movie.imdbID)" ng-mouseleave="$ctrl.hide()">
   <img class="tech-logo" ng-src="{{ $ctrl.movie.Poster }}" />
   <h3 class="tech-h3">
     {{ $ctrl.movie.Title }}
   </h3>
+  <div class="details" ng-show="$ctrl.showMore">
+    <label for="">Rating:</label>
+    <p>{{ $ctrl.movieData.rating }}</p>
+    <label for="">Actors:</label>
+    <p ng-repeat="actor in $ctrl.movieData.actors">{{ actor }}</p>
+  </div>
 </div>

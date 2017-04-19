@@ -4,7 +4,7 @@ class BarController {
     this.$log = $log;
     this.AppService = AppService;
     this.$rootScope = $rootScope;
-    let page = 1;
+    this.page = 1;
     const self = this;
     function getMore(ev, flag) {
       if (flag) {
@@ -15,9 +15,9 @@ class BarController {
         if (queryDefined === true) {
           $log.log('indefinido');
         } else {
-          page++;
-          $log.log(`search page ${page}`);
-          self.searchMore(page);
+          self.page++;
+          $log.log(`search page ${self.page}`);
+          self.searchMore(self.page);
         }
       }
     }
@@ -27,6 +27,7 @@ class BarController {
     this.flag = !this.flag;
   }
   search() {
+    this.page = 1;
     this.$log.log('searching');
     this.AppService.getMovies(this.query, 1)
       .then(data => {
