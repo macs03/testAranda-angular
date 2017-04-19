@@ -4,6 +4,10 @@ import {
   moviesModule
 } from './app/techs/index';
 
+import {
+  movieDetailModule
+} from './app/movieDetail/index';
+
 import 'angular-ui-router';
 import 'angular-loading-bar';
 import 'angular-loading-bar/build/loading-bar.min.css';
@@ -38,7 +42,7 @@ import {
 import './index.scss';
 
 angular
-  .module('app', [moviesModule, 'ui.router', 'toastr', 'angular-loading-bar'])
+  .module('app', [moviesModule, movieDetailModule, 'ui.router', 'toastr', 'angular-loading-bar'])
   .config(routesConfig)
   .config(loadingBar)
   .config(toastr)

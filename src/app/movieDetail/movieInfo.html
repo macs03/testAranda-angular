@@ -1,0 +1,48 @@
+<div class="infoMovie">
+  <div class="poster">
+    <figure>
+      <img src="{{$ctrl.data.Poster}}" alt="">
+    </figure>
+    <h3>
+      {{$ctrl.data.Title}}
+    </h3>
+  </div>
+
+  <div class="serie" ng-show="$ctrl.serie">
+    serie
+  </div>
+
+  <div class="movie" ng-show="$ctrl.movie">
+    <span>
+      Description:
+    </span>
+    <p>
+      {{$ctrl.data.Plot}}
+    </p>
+    <span>
+      Director:
+    </span>
+    <p>
+      {{$ctrl.data.Director}}
+    </p>
+    <span>
+      Awards:
+    </span>
+    <p>
+      {{$ctrl.data.Awards}}
+    </p>
+    <span>
+      Year:
+    </span>
+    <p>
+      {{$ctrl.data.Year}}
+    </p>
+    <span>
+      Genre:
+    </span>
+    <p>
+      {{$ctrl.data.Genre}}
+    </p>
+  </div>
+
+</div>

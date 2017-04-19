@@ -192,3 +192,17 @@ a {
     opacity: 1;
   }
 }
+
+.infoMovie{
+  display: flex;
+  .poster{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .movie{
+    padding: 1em;
+  }
+}
+
