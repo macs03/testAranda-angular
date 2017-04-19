@@ -1,11 +1,15 @@
 import angular from 'angular';
 
-import {tech} from './tech';
-import {techs} from './techs';
+import {
+  movie
+} from './movie';
+import {
+  movies
+} from './movies';
 
-export const techsModule = 'techs';
+export const moviesModule = 'movies';
 
 angular
-  .module(techsModule, [])
-  .component('fountainTech', tech)
-  .component('fountainTechs', techs);
+  .module(moviesModule, [])
+  .component('movie', movie)
+  .component('movies', movies);

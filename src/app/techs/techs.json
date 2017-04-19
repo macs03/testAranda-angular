@@ -1,5 +1,4 @@
-[
-  {
+[{
     "key": "gulp",
     "title": "Gulp",
     "logo": "http://fountainjs.io/assets/imgs/gulp.png",
@@ -53,6 +52,13 @@
     "title": "Webpack",
     "logo": "http://fountainjs.io/assets/imgs/webpack.png",
     "text1": "Webpack is a module bundler",
+    "text2": "Webpack, the production / unbiased / flexible / extensible / open source module bundler"
+  },
+  {
+    "key": "mia",
+    "title": "MyTech",
+    "logo": "http://fountainjs.io/assets/imgs/webpack.png",
+    "text1": "My own tech",
     "text2": "Webpack, the production / unbiased / flexible / extensible / open source module bundler"
   }
 ]
