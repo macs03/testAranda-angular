@@ -1,4 +1,4 @@
-<div class="title">
+<div class="title" scroll>
   <div class="back-title">
     <a href="/">
       <i class="fa fa-chevron-left" aria-hidden="true"></i>
@@ -13,8 +13,8 @@
     </div>
     <div class="search" ng-class="{in: $ctrl.flag, out: !$ctrl.flag}" ng-show=" $ctrl.flag ">
       <form ng-submit="$ctrl.search() ">
-        <input type="text " placeholder="search a movie or serie ">
-        <input style="display:none " type="submit ">
+        <input type="text " placeholder="search a movie or serie" ng-model="$ctrl.query">
+        <input style="display:none" type="submit" value="enviar">
       </form>
     </div>
   </div>

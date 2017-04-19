@@ -1,75 +1,32 @@
 class AppService {
-  constructor($http, $q) {
+  constructor($http, $q, ApiUrl) {
     this.$http = $http;
     this.$q = $q;
+    this.ApiUrl = ApiUrl;
   }
 
-  getCharacters(query) {
+  getMovies(query, page) {
     const defered = this.$q.defer();
     const promise = defered.promise;
 
     this.$http({
-        method: 'GET',
-        url: ``
-      })
+      method: 'GET',
+      url: `${this.ApiUrl}?s=${query}&page=${page}`
+    })
       .then(
-        data => {
-          defered.resolve(data);
-        },
-        err => {
-          defered.reject(err);
-        }
+      data => {
+        defered.resolve(data);
+      },
+      err => {
+        defered.reject(err);
+      }
       );
-
-    return promise;
-  }
-
-  getCharactersByName(page, query) {
-    const defered = this.$q.defer();
-    const promise = defered.promise;
-
-    this.getConfig().then(config => {
-      this.$http({
-          method: 'GET',
-          url: `${config.api_url}characters?${config.ts}&${config.user_key}&${config.hash_key}&limit=10&offset=${page}&nameStartsWith=${query}`
-        })
-        .then(
-          data => {
-            defered.resolve(data);
-          },
-          err => {
-            defered.reject(err);
-          }
-        );
-    });
-
-    return promise;
-  }
-
-  getComic(comic) {
-    const defered = this.$q.defer();
-    const promise = defered.promise;
-
-    this.getConfig().then(config => {
-      this.$http({
-          method: 'GET',
-          url: `${comic}?${config.ts}&${config.user_key}&${config.hash_key}`
-        })
-        .then(
-          data => {
-            defered.resolve(data);
-          },
-          err => {
-            defered.reject(err);
-          }
-        );
-    });
 
     return promise;
   }
 
 }
 
-AppService.$inject = ['$http', '$q'];
+AppService.$inject = ['$http', '$q', 'ApiUrl'];
 
 export default AppService;
