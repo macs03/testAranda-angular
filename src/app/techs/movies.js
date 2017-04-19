@@ -1,4 +1,4 @@
-class TechsController {
+class MoviessController {
   /** @ngInject */
   constructor($http) {
     $http
@@ -9,7 +9,7 @@ class TechsController {
   }
 }
 
-export const techs = {
-  template: require('./techs.html'),
-  controller: TechsController
+export const movies = {
+  template: require('./movies.html'),
+  controller: MoviessController
 };
