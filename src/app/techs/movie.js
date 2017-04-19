@@ -1,8 +1,9 @@
 class MovieController {
-  constructor($log, AppService) {
+  constructor($log, AppService, $location) {
     this.showMore = false;
     this.$log = $log;
     this.AppService = AppService;
+    this.$location = $location;
   }
   action(id) {
     this.AppService.getMovie(id)
@@ -27,9 +28,13 @@ class MovieController {
     this.showMore = false;
   }
 
+  goToDetail(id) {
+    this.$location.path(`/movieDetail/${id}`);
+  }
+
 }
 
-MovieController.$inject = ['$log', 'AppService'];
+MovieController.$inject = ['$log', 'AppService', '$location'];
 export const movie = {
   template: require('./movie.html'),
   bindings: {

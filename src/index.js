@@ -25,6 +25,9 @@ import {
 import {
   footer
 } from './app/footer';
+import {
+  movieDetail
+} from './app/movieDetail';
 
 import AppService from './app/service';
 
@@ -44,5 +47,6 @@ angular
   .component('bar', bar)
   .directive('scroll', ScrollDirective)
   .component('fountainFooter', footer)
+  .component('movieDetail', movieDetail)
   .constant('ApiUrl', 'http://www.omdbapi.com/')
   .service('AppService', AppService);

@@ -1,5 +1,5 @@
 <div class="tech" ng-mouseenter="$ctrl.action($ctrl.movie.imdbID)" ng-mouseleave="$ctrl.hide()">
-  <img class="tech-logo" ng-src="{{ $ctrl.movie.Poster }}" />
+  <img ng-dblclick="$ctrl.goToDetail($ctrl.movie.imdbID)" class="tech-logo" ng-src="{{ $ctrl.movie.Poster }}" />
   <h3 class="tech-h3">
     {{ $ctrl.movie.Title }}
   </h3>
