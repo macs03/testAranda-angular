@@ -6,9 +6,9 @@ export const ScrollDirective = ($window, $log, $rootScope, $document) => {
     restrict: 'A',
     link($scope) {
       angular.element($window).bind('scroll', () => {
-        const el = angular.element($document).find('body');
-        const height = el[0].scrollHeight / 1.7;
-        if (pageYOffset > height) {
+        const el = angular.element($document).find('movies');
+        const height = el[0].scrollHeight / 2;
+        if (pageYOffset + 200 > height) {
           $rootScope.$broadcast('getMore', true);
         }
         $scope.$apply();

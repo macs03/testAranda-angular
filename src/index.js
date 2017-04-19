@@ -34,6 +34,7 @@ import {
 } from './app/movieDetail';
 
 import AppService from './app/service';
+import ValidateService from './app/validate.service';
 
 import {
   ScrollDirective
@@ -53,4 +54,5 @@ angular
   .component('fountainFooter', footer)
   .component('movieDetail', movieDetail)
   .constant('ApiUrl', 'http://www.omdbapi.com/')
-  .service('AppService', AppService);
+  .service('AppService', AppService)
+  .service('ValidateService', ValidateService);

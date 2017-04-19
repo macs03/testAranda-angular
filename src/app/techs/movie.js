@@ -8,6 +8,9 @@ class MovieController {
   action(id) {
     this.AppService.getMovie(id)
       .then(data => {
+        if (data.data.Error) {
+          this.toastr.error(data.data.Error);
+        }
         this.showMore = true;
         const actors = data.data.Actors.split(',');
         const actorsShow = [];

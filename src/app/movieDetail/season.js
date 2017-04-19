@@ -1,6 +1,7 @@
 class SeasonController {
-  constructor(AppService, $location, $log) {
+  constructor(AppService, $location, $log, toastr) {
     this.AppService = AppService;
+    this.toastr = toastr;
     const id = $location.path().split('/');
     this.id = id[2];
     this.$log = $log;
@@ -9,6 +10,9 @@ class SeasonController {
       .then(data => {
         $log.log(data);
         this.data = data.data;
+        if (data.data.Error) {
+          this.toastr.error(data.data.Error);
+        }
         this.seasonsNumbers = [];
         for (let i = 1; i <= this.data.totalSeasons; i++) {
           this.seasonsNumbers.push(i);
@@ -34,6 +38,9 @@ class SeasonController {
     this.AppService.getEpisode(id)
       .then(data => {
         this.$log.log(data);
+        if (data.data.Error) {
+          this.toastr.error(data.data.Error);
+        }
         this.episodeData = data.data;
         this.showDescription = true;
       })
@@ -41,7 +48,7 @@ class SeasonController {
   }
 }
 
-SeasonController.$inject = ['AppService', '$location', '$log'];
+SeasonController.$inject = ['AppService', '$location', '$log', 'toastr'];
 
 export const season = {
   template: require('./season.html'),

@@ -4,7 +4,9 @@
       <img src="{{$ctrl.data.Poster}}" alt="">
     </figure>
     <h3>
-      {{$ctrl.data.Title}}
+      <strong>
+        {{$ctrl.data.Title}}
+      </strong>
     </h3>
   </div>
 
@@ -14,31 +16,41 @@
 
   <div class="movie" ng-show="$ctrl.movie">
     <span>
-      Description:
+      <strong>
+        Description:
+      </strong>
     </span>
     <p>
       {{$ctrl.data.Plot}}
     </p>
     <span>
-      Director:
+      <strong>
+         Director:
+      </strong>
     </span>
     <p>
       {{$ctrl.data.Director}}
     </p>
     <span>
-      Awards:
+      <strong>
+         Awards:
+      </strong>
     </span>
     <p>
       {{$ctrl.data.Awards}}
     </p>
     <span>
-      Year:
+      <strong>
+        Year:
+      </strong>
     </span>
     <p>
       {{$ctrl.data.Year}}
     </p>
     <span>
-      Genre:
+      <strong>
+        Genre:
+      </strong>
     </span>
     <p>
       {{$ctrl.data.Genre}}

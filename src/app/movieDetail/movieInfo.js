@@ -6,6 +6,9 @@ class MovieInfoController {
       .then(data => {
         $log.log(data);
         this.data = data.data;
+        if (data.data.Error) {
+          this.toastr.error(data.data.Error);
+        }
         if (data.data.Type === 'series') {
           this.serie = true;
         } else {
