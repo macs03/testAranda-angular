@@ -195,6 +195,7 @@ a {
 
 .infoMovie{
   display: flex;
+  align-items: flex-start;
   .poster{
     display: flex;
     justify-content: center;
@@ -203,6 +204,38 @@ a {
   }
   .movie{
     padding: 1em;
+  }
+}
+
+.numSeason{
+  ul{
+    list-style: none;
+    display: flex;
+    padding: 0;
+    li{
+      padding: 1em;
+      background: #dcdcdc;
+      margin: .3em;
+      box-shadow: 2.5px 2.5px 2.5px #888888;
+    }
+    .active{
+      background: #888888;
+    }
+  }
+}
+
+.season{
+  ul{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    li{
+      padding: 1em;
+      background: #dcdcdc;
+      margin: .3em;
+      box-shadow: 2.5px 2.5px 2.5px #888888;
+    }
   }
 }
 

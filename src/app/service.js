@@ -45,6 +45,26 @@ class AppService {
     return promise;
   }
 
+  getSeasons(id, season) {
+    const defered = this.$q.defer();
+    const promise = defered.promise;
+
+    this.$http({
+      method: 'GET',
+      url: `${this.ApiUrl}?i=${id}&Season=${season}`
+    })
+      .then(
+      data => {
+        defered.resolve(data);
+      },
+      err => {
+        defered.reject(err);
+      }
+      );
+
+    return promise;
+  }
+
 }
 
 AppService.$inject = ['$http', '$q', 'ApiUrl'];

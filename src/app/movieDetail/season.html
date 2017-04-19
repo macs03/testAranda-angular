@@ -1,0 +1,20 @@
+<div class="seasons">
+  <div class="numSeason">
+    <h3>Seasons</h3>
+    <ul>
+      <li ng-class="{active: $ctrl.tab == $index}" ng-repeat="season in $ctrl.seasonsNumbers" ng-click="$ctrl.getSeasons(season)">{{season}}</li>
+    </ul>
+  </div>
+  <div class="season">
+    <ul>
+      <li ng-repeat="chapter in $ctrl.episodes">
+        <span>
+          {{chapter.Title}}
+        </span>
+        <div ng-show="$ctrl.showDescription">
+          Description
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
