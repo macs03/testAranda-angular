@@ -5,11 +5,16 @@ class BarController {
     this.AppService = AppService;
     this.$rootScope = $rootScope;
     this.page = 1;
+    this.$location = $location;
 
     if ($location.path() === '/') {
       this.showBack = false;
     } else {
       this.showBack = true;
+    }
+
+    if (localStorage.getItem('test-search-redirec')) {
+      this.showSearch();
     }
 
     const self = this;
@@ -32,6 +37,11 @@ class BarController {
   }
   showSearch() {
     this.flag = !this.flag;
+    localStorage.removeItem('test-search-redirec', false);
+    if (this.$location.path() !== '/') {
+      this.$location.path('/');
+      localStorage.setItem('test-search-redirec', true);
+    }
   }
   search() {
     this.page = 1;
