@@ -1,10 +1,17 @@
 class BarController {
-  constructor($log, AppService, $scope, $rootScope) {
+  constructor($log, AppService, $scope, $rootScope, $location) {
     this.flag = false;
     this.$log = $log;
     this.AppService = AppService;
     this.$rootScope = $rootScope;
     this.page = 1;
+
+    if ($location.path() === '/') {
+      this.showBack = false;
+    } else {
+      this.showBack = true;
+    }
+
     const self = this;
     function getMore(ev, flag) {
       if (flag) {
@@ -29,6 +36,7 @@ class BarController {
   search() {
     this.page = 1;
     this.$log.log('searching');
+    localStorage.setItem('test-query', this.query);
     this.AppService.getMovies(this.query, 1)
       .then(data => {
         this.$log.log(data);
@@ -49,9 +57,24 @@ class BarController {
         this.toastr.error(err);
       });
   }
+
+  showPreview() {
+    this.page = 1;
+    this.$log.log('searching');
+    const query = localStorage.getItem('test-query');
+    this.AppService.getMovies(query, 1)
+      .then(data => {
+        this.$log.log(data);
+        this.$rootScope.$broadcast('getData', data.data);
+      })
+      .catch(err => {
+        this.toastr.error(err);
+      });
+  }
+
 }
 
-BarController.$inject = ['$log', 'AppService', '$scope', '$rootScope'];
+BarController.$inject = ['$log', 'AppService', '$scope', '$rootScope', '$location'];
 
 export const bar = {
   template: require('./bar.html'),
